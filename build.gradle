@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'jetty'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile "javax.ws.rs:jsr311-api:1.1.1"
+
+    compile 'com.sun.jersey:jersey-server:1.18.1'
+    compile 'com.sun.jersey:jersey-core:1.18.1'
+    compile 'com.sun.jersey:jersey-client:1.18.1'
+    compile 'com.sun.jersey:jersey-servlet:1.18.1'
+    compile 'com.sun.jersey:jersey-json:1.18.1'
+
+    compile group: 'redis.clients', name: 'jedis', version: '2.4.2'
+    
+    compile group: 'org.slf4j', name:'slf4j-api', version: '1.7.2', ext: 'jar'
+    compile group: 'org.slf4j', name:'slf4j-log4j12', version: '1.7.2', ext: 'jar'
+    compile group: 'log4j', name: 'log4j', version: '1.2.15', ext: 'jar'
+}
+
+httpPort = 8080
+stopPort = 9451
+stopKey = 'foo'
